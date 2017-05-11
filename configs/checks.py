@@ -10,7 +10,7 @@ def is_owner():
     return commands.check(lambda ctx: is_owner_check(ctx.message))
 
 def has_role_check(member):
-    with open(os.path.dirname(os.path.realpath(__file__)) + "/ranks.json") as data_file:    
+    with open(os.path.dirname(os.path.realpath(__file__)) + "/roles.json") as data_file:    
         ranks = json.load(data_file)
 
     ranksSearch = ranks["allowed"]
@@ -25,7 +25,7 @@ def has_role_check(member):
     return False
 
 def has_role():
-    return commands.check(lambda ctx: has_rank_check(ctx.message.author))
+    return commands.check(lambda ctx: has_role_check(ctx.message.author))
 
 # The permission system of the bot is based on a "just works" basis
 # You have permissions and the bot has permissions. If you meet the permissions

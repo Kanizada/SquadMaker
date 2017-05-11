@@ -48,10 +48,12 @@ class Administrations:
     def is_me(self, m):
         return m.author == bot.user
 
+    # CHECK
     @commands.command(pass_context=True, no_pm=False)
     @checks.is_owner()
     @asyncio.coroutine
     def clean(self, ctx, length : int = None):
+        """Delete bot's messages."""
         if length == None:
             length = 100
         else:
@@ -86,6 +88,7 @@ class Administrations:
     @checks.is_owner()
     @asyncio.coroutine
     def path(self, ctx):
+        """Use to find the path of the script."""
         yield from self.bot.send_message(ctx.message.channel, "Real path : " + os.path.dirname(os.path.realpath(__file__)))
 
     @commands.command(pass_context=True, no_pm=True)
